@@ -43,4 +43,29 @@ You need to copy the output of your plugin build and the mobilertc depndency to 
 
 
 
+# Using the jwt generation backend
 
+the JWT generation backend automatically generates jwt signatures based on your ZoomSDK VideoSDK app-key and secret. This backend does nothing but that. the video streaming is done by zoom's servers not this backend.
+
+1. Cd into ```videosdk-sample-signature-node.js```
+2. Create file named ``.env `` with the variables shown below :
+```
+ZOOM_VIDEO_SDK_KEY=your_sdk_key
+ZOOM_VIDEO_SDK_SECRET=your_sdk_secret
+```
+3. Run ```npm install```
+
+4. Start the server by running ```npm run start```
+
+5. Access the server at http://your_ip_address:4000
+
+please beware that this backend is for testing only so run it in your local network for testing your android devices.
+
+# How the Backend works :
+
+the Godot app creates a json request to the backend. the backend responts with a json file containing the jwt signature and the received paylot for debugging purposes. Then the godot app hands the join info along with the jwt signature to the plugin and the plugin renders on top of godot.
+
+
+# Android Rendering notes :
+
+I would've preferred if there was support to send raw video data to godot and render them with godot. However such approach is not well supported with godot at the moment so we're using Zoom's built in renderer which uses Android Views.
