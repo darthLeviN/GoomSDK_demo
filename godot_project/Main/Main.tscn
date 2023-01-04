@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3s3ip0o4l5gp"]
+
+[ext_resource type="Script" path="res://Main/Main.gd" id="1_qx1vs"]
+[ext_resource type="PackedScene" uid="uid://ch5hvxdtoou6g" path="res://UI/TextInputField/TextInputField.tscn" id="2_sdphh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxse0"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qx1vs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 1600.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GOOMContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxse0")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SessionName" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" instance=ExtResource("2_sdphh")]
+unique_name_in_owner = true
+layout_mode = 2
+label = "Session Name"
+value = ""
+placeholder = "cool"
+
+[node name="UserName" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" instance=ExtResource("2_sdphh")]
+unique_name_in_owner = true
+layout_mode = 2
+label = "User Name"
+value = ""
+placeholder = "user1"
+
+[node name="SessionPwd" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" instance=ExtResource("2_sdphh")]
+unique_name_in_owner = true
+layout_mode = 2
+label = "Session Password"
+value = ""
+placeholder = "pwd"
+
+[node name="JwtBackendURL" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" instance=ExtResource("2_sdphh")]
+unique_name_in_owner = true
+layout_mode = 2
+label = "jwt backend url"
+value = ""
+placeholder = "http://192.168.0.10:4000"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="JoinButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "JOIN"
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "STATUS : NONE"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

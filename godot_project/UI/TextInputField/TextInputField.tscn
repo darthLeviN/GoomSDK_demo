@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch5hvxdtoou6g"]
+
+[ext_resource type="Script" path="res://UI/TextInputField/TextInputField.gd" id="1_8doqn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ags2"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+
+[node name="TextInputField" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1ags2")
+script = ExtResource("1_8doqn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 900.0
+offset_bottom = 1600.0
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 10.0
+offset_right = 890.0
+offset_bottom = 1600.0
+
+[node name="Input" type="LineEdit" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+offset_right = 400.0
+offset_bottom = 1600.0
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 404.0
+offset_right = 809.0
+offset_bottom = 1600.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 813.0
+offset_top = 780.0
+offset_right = 880.0
+offset_bottom = 819.0
+theme_override_font_sizes/font_size = 26
+text = "Label"

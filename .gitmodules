@@ -1,0 +1,3 @@
+[submodule "videosdk-sample-signature-node.js"]
+	path = videosdk-sample-signature-node.js
+	url = https://github.com/darthLeviN/videosdk-sample-signature-node.js.git
