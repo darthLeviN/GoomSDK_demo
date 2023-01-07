@@ -23,7 +23,10 @@ https://marketplace.zoom.us/docs/sdk/video/android/getting-started/integrate/
 1. Install Android Build Template (skip if you have already done it)
 First you need to open the project in the ``` godot_project ``` folder with your godot engine. then press Project > Install Android Build Template. this will copy some .aar files in ``` godot_project/android/build/libs/ ```. if you odn't want to use these go ahead and replace them with whatever you want to use for your build.
 
-2. Edit build.gradle to resolve a build conflict.
+2. Add Godot dependency for Android plugin
+from the .aar files mentioned above, you will need to copy the release .aar which is named ```godot-lib.template_release.aar``` into the ```/AndroidStudioProject/GoomSDKVideoPlugin/``` folder.
+
+3. Edit build.gradle to resolve a build conflict.
 In the 'godot_project/android/build/build.gradle' file find where it says ``` packagingOptions { ```, then edit it so it includes the options shown below :
 
 ```
@@ -36,10 +39,10 @@ packagingOptions {
 
 ```
 
-3. Add .aar plugin Files :
+4. Add .aar plugin Files :
 You need to copy the output of your plugin build and the mobilertc depndency to ```godot_project/android/plugins```. the .aar file for the output of your build will probably be located at ```/AndroidStudioProject/GoomSDKVideoPlugin/build/outputs/aar/GoomSDKVideoPlugin-debug.aar```. the mobilertc depndency will probably be located at ```AndroidStudioProject/mobilertc/mobilertc.aar```. finally if the names of your files are different edit the names or ```GoomSDK.gdap``` so that they match.
 
-4. Now you can go ahead and export your project for Android.
+5. Now you can go ahead and export your project for Android.
 
 
 
